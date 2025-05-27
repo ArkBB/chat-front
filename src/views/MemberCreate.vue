@@ -6,33 +6,36 @@
             <v-card-title class="text-h5 text-center">
               회원가입
             </v-card-title>
+
+            <v-card-text>
+              <v-form @submit.prevent ="memberCreate">
+                <v-text-field
+                    label="이름"
+                    v-model="name"
+                    required>
+
+                </v-text-field>
+
+                <v-text-field
+                    label="이메일"
+                    v-model="email"
+                    type="email"
+                    required>
+                </v-text-field>
+                <v-text-field
+                    label="비밀번호"
+                    v-model="password"
+                    type="password"
+                    required>
+                </v-text-field>
+                <v-btn type ="submit" color = "god" block>
+                  등록
+                </v-btn>
+              </v-form>
+            </v-card-text>
+
           </v-card>
-          <v-card-text>
-            <v-form @submit.prevent ="memberCreate">
-              <v-text-field
-                label="이름"
-                v-model="name"
-                required>
 
-              </v-text-field>
-
-              <v-text-field
-                label="이메일"
-                v-model="email"
-                type="email"
-                required>
-              </v-text-field>
-              <v-text-field
-                label="비밀번호"
-                v-model="password"
-                type="password"
-                required>
-              </v-text-field>
-              <v-btn type ="submint" color = "god" block>
-                등록
-              </v-btn>
-            </v-form>
-          </v-card-text>
         </v-col>
       </v-row>
     </v-container>
@@ -56,7 +59,7 @@ export default{
         email: this.email,
         password: this.password
       }
-      await axios.post("http://localhost:8080/member/create",data);
+      await axios.post(`${process.env.VUE_APP_API_BASE_URL}/member/create`,data);
       this.$router.push("/");
     }
   }
