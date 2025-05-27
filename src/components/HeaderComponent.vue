@@ -10,9 +10,9 @@
             <v-btn :to="{path: '/'}"> chat서비스</v-btn>
         </v-col>
         <v-col class="d-flex justify-end">
-          <v-btn :to="{path: '/member/list'}" v-if="isLogin">MyChatPage</v-btn>
-          <v-btn :to="{path: '/member/list'}" v-if="!isLogin">회원가입</v-btn>
-          <v-btn :to="{path: '/member/list'}" v-if="!isLogin">로그인</v-btn>
+          <v-btn :to="{path: ''}" v-if="isLogin">MyChatPage</v-btn>
+          <v-btn :to="{path: '/member/create'}" v-if="!isLogin">회원가입</v-btn>
+          <v-btn :to="{path: '/member/login'}" v-if="!isLogin">로그인</v-btn>
           <v-btn v-if="isLogin" @click="doLogout">로그아웃</v-btn>
         </v-col>
 
